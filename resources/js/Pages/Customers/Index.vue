@@ -3,11 +3,22 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, Link } from "@inertiajs/vue3";
 import FlashMessage from "@/Components/FlashMessage.vue";
 import Pagination from "@/Components/Pagination.vue";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
     customers: Object,
 });
+
+onMounted(() => {
+    console.log(props.customers);
+});
+
+const search = ref("");
+
+const searchCustomers = () => {
+    Inertia.get(route("customers.index", { search: search.value }));
+};
 </script>
 
 <template>
@@ -26,6 +37,20 @@ const props = defineProps({
                         <section class="text-gray-600 body-font">
                             <div class="container px-5 py-8 mx-auto">
                                 <FlashMessage />
+                                <div class="flex gap-4 mt-4">
+                                    <input
+                                        type="text"
+                                        name="search"
+                                        v-model="search"
+                                        class="rounded-lg"
+                                    />
+                                    <button
+                                        class="bg-blue-500 text-white p-2 rounded-lg"
+                                        @click="searchCustomers"
+                                    >
+                                        検索
+                                    </button>
+                                </div>
                                 <div
                                     class="lg:w-2/3 w-full mx-auto overflow-auto"
                                 >
@@ -34,7 +59,7 @@ const props = defineProps({
                                     >
                                         <Link
                                             as="button"
-                                            :href="route('items.create')"
+                                            :href="route('customers.create')"
                                             class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                                             >顧客登録</Link
                                         >
