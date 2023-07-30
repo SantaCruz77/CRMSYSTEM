@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Customer::factory(10)->create();
+        \App\Models\Purchase::factory(10)->create();
     }
 }
