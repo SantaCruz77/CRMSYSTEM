@@ -29,7 +29,7 @@ defineProps({
                                     class="lg:w-2/3 w-full mx-auto overflow-auto"
                                 >
                                     <div
-                                        class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto"
+                                        class="flex my-4 lg:w-2/3 w-full ml-auto mr-0"
                                     >
                                         <Link
                                             as="button"

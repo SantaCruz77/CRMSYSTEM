@@ -37,25 +37,26 @@ const searchCustomers = () => {
                         <section class="text-gray-600 body-font">
                             <div class="container px-5 py-8 mx-auto">
                                 <FlashMessage />
-                                <div class="flex gap-4 mt-4">
-                                    <input
-                                        type="text"
-                                        name="search"
-                                        v-model="search"
-                                        class="rounded-lg"
-                                    />
-                                    <button
-                                        class="bg-blue-500 text-white p-2 rounded-lg"
-                                        @click="searchCustomers"
-                                    >
-                                        検索
-                                    </button>
-                                </div>
+
                                 <div
                                     class="lg:w-2/3 w-full mx-auto overflow-auto"
                                 >
+                                    <div class="flex gap-4 mt-4 justify-end">
+                                        <input
+                                            type="text"
+                                            name="search"
+                                            v-model="search"
+                                            class="rounded-lg"
+                                        />
+                                        <button
+                                            class="bg-blue-500 text-white p-2 rounded-lg"
+                                            @click="searchCustomers"
+                                        >
+                                            検索
+                                        </button>
+                                    </div>
                                     <div
-                                        class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto"
+                                        class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto ml-auto mr-0"
                                     >
                                         <Link
                                             as="button"
@@ -117,10 +118,12 @@ const searchCustomers = () => {
                                     </table>
                                 </div>
                             </div>
-                            <Pagination
-                                class="mt-6"
-                                :links="customers.links"
-                            ></Pagination>
+                            <div class="flex justify-center">
+                                <Pagination
+                                    class="mt-6"
+                                    :links="customers.links"
+                                ></Pagination>
+                            </div>
                         </section>
                     </div>
                 </div>
