@@ -29,6 +29,9 @@ defineProps({
                         </button>
                         <p>{{ auth }}</p>
                     </div>
+                    <div v-else>
+                        <h1>隠しボタンは見せない！</h1>
+                    </div>
                 </div>
             </div>
         </div>
